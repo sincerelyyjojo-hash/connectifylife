@@ -15,11 +15,10 @@
 
 var SHEET_ID = '1pNrVOWkSNHEgHXtjikARdWtOjdell1vjeN0N80Y-Bqg';
 
-function doPost(e) {
+function doGet(e) {
   try {
-    var data = JSON.parse(e.postData.contents);
-    var email = data.email || '';
-    var timestamp = data.timestamp || new Date().toISOString();
+    var email = e.parameter.email || '';
+    var timestamp = e.parameter.timestamp || new Date().toISOString();
 
     if (!email) {
       return jsonResponse({ result: 'error', message: 'No email provided' });
@@ -40,8 +39,8 @@ function doPost(e) {
   }
 }
 
-function doGet(e) {
-  return jsonResponse({ result: 'ok', message: 'Newsletter endpoint is live.' });
+function doPost(e) {
+  return doGet(e);
 }
 
 function jsonResponse(obj) {

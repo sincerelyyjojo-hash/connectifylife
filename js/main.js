@@ -109,12 +109,8 @@ document.addEventListener('DOMContentLoaded', function () {
         btn.textContent = 'Subscribing…';
         btn.disabled = true;
 
-        fetch(NEWSLETTER_ENDPOINT, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email, timestamp: new Date().toISOString() })
-        }).finally(function () {
+        var url = NEWSLETTER_ENDPOINT + '?email=' + encodeURIComponent(email) + '&timestamp=' + encodeURIComponent(new Date().toISOString());
+        fetch(url).finally(function () {
           if (input) input.value = '';
           btn.textContent = 'You\'re in!';
           btn.style.background = '#E7F1A8';
