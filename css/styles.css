@@ -1729,4 +1729,13 @@ footer {
   .hero-actions { flex-direction: column; }
   .hero-actions .btn { width: 100%; justify-content: center; }
   .team-grid { grid-template-columns: 1fr; }
+  .cs-meta { flex-direction: column; gap: 10px; }
+  .cs-meta-item { flex-direction: column; gap: 2px; }
+  .cs-sidebar-card { padding: 20px; }
+  .bento-grid { grid-auto-rows: 200px; }
+  .highlight-box { padding: 24px; }
 }
+
+/* Prevent horizontal overflow on all pages */
+html, body { max-width: 100%; overflow-x: hidden; }
+.container { padding-left: 20px; padding-right: 20px; }
