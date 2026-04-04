@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trunk Sale Event — Connectify Media</title>
+  <meta name="description" content="Case study: Connectify Media's Trunk Sale Event — 8 years, 200+ family booths, 50+ sponsors, and $9,000+ raised for SickKids Hospital in partnership with Markham CommunityLink." />
+  <link rel="icon" type="image/png" href="../brand_assets/logo colored.png" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" />
+  <style>
+    .ts-trailer-wrap {
+      width: 100%;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: #000;
+      margin-top: 40px;
+    }
+    .ts-trailer-wrap video {
+      width: 100%;
+      display: block;
+      max-height: 560px;
+      object-fit: cover;
+    }
+    .ts-media-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 40px;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .ts-media-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .ts-media-grid { grid-template-columns: 1fr; }
+    }
+    .ts-media-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      display: block;
+    }
+    .ts-media-grid img.ts-wide {
+      grid-column: span 2;
+      height: 260px;
+    }
+    @media (max-width: 768px) {
+      .ts-media-grid img.ts-wide { grid-column: span 1; height: 220px; }
+    }
+    .ts-reel-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 9/16;
+      grid-row: span 2;
+    }
+    .ts-reel-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .sickkids-callout {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      background: #fff8f0;
+      border: 2px solid #f4a261;
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      margin-top: 48px;
+    }
+    .sickkids-callout-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #f4a261;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .sickkids-callout h4 {
+      font-family: var(--font-primary);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #c04d1a;
+      margin: 0 0 6px;
+    }
+    .sickkids-callout p {
+      font-size: 0.9rem;
+      color: var(--dark-text);
+      margin: 0 0 12px;
+      line-height: 1.7;
+    }
+    @media (max-width: 600px) {
+      .sickkids-callout { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="navbar-logo">
+        <img src="../brand_assets/logo colored.png" alt="Connectify Media Logo" />
+        <div class="navbar-logo-text">CONNECTIFY<span>Media Inc.</span></div>
+      </a>
+      <div class="navbar-nav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <a href="../portfolio.html" class="active">Portfolio</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <a href="../contact.html" class="btn btn-primary btn-sm navbar-cta">Get Started</a>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="../index.html">Home</a><a href="../about.html">About</a><a href="../services.html">Services</a>
+    <a href="../portfolio.html">Portfolio</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a>
+    <a href="../contact.html" class="btn btn-primary">Get Started</a>
+  </div>
+
+  <!-- CASE STUDY HERO -->
+  <section class="cs-hero" style="background:var(--warm-white);">
+    <div class="container">
+
+      <div class="cs-breadcrumb" style="padding-top:32px;" data-reveal>
+        <a href="../portfolio.html">Portfolio</a>
+        <span class="material-icons-round" style="font-size:0.9rem;">chevron_right</span>
+        <span>Trunk Sale Event</span>
+      </div>
+
+      <div style="max-width:820px;" data-reveal>
+        <div class="case-study-tags" style="margin-bottom:20px;">
+          <span class="case-study-tag">Event Curation</span>
+          <span class="case-study-tag">Community Event</span>
+          <span class="case-study-tag">Fundraiser</span>
+        </div>
+        <h1 style="font-size:clamp(2rem,4vw,3.2rem);margin-bottom:24px;">Trunk Sale Event</h1>
+        <div class="cs-meta">
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Host</span>
+            <span class="cs-meta-value">Connectify Media Inc.</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Partner</span>
+            <span class="cs-meta-value">Markham CommunityLink</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Location</span>
+            <span class="cs-meta-value">Markham, Ontario</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Editions</span>
+            <span class="cs-meta-value">8 Events &amp; Counting</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal style="margin-top:40px;">
+        <img src="../trunk_sale/DSC04649.JPG" alt="Trunk Sale Event — families and booths" style="width:100%;height:520px;object-fit:cover;object-position:center;border-radius:var(--radius-xl);" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY BODY -->
+  <section class="cs-body" style="background:var(--warm-white);">
+    <div class="container">
+      <div class="cs-body-grid">
+
+        <!-- Story -->
+        <div class="cs-story" data-reveal>
+
+          <h2>The Idea</h2>
+          <p>In the years following COVID-19, small businesses and local entrepreneurs faced a shared problem: the audiences they'd built were hard to reach, trust was fragile, and the energy that comes from real, in-person community had been lost. Connectify Media partnered with <strong>Markham CommunityLink</strong> to create something that could bring it back.</p>
+          <p>The Trunk Sale Event was born from a simple idea — open up a parking lot, invite families to set up from their car trunks, bring in local sponsors, and let the community do what it does best: connect.</p>
+
+          <h2>How It Works</h2>
+          <p>Each Trunk Sale brings together over <strong>200 family booths</strong> where parents and children set up alongside each other to sell items, crafts, baked goods, and more. It's equal parts marketplace, community fair, and teaching moment — children get hands-on experience with commerce, pricing, selling, and customer interaction in a safe, fun environment.</p>
+          <p>Over <strong>50+ local business sponsors</strong> participate in each event, gaining direct access to an engaged, family-oriented crowd that is genuinely receptive. It's the kind of community visibility that no digital ad can replicate — face-to-face, in the same neighbourhood, building real relationships.</p>
+          <p>Connectify Media handles the full event production lifecycle: venue logistics, sponsor coordination, vendor onboarding, on-site management, and post-event digital content to extend the reach of each edition.</p>
+
+          <h2>The Impact</h2>
+          <p>Eight editions in, the Trunk Sale has become a staple of the Markham community calendar. Families return year after year. Sponsors report strong brand recall and genuine leads. And children who have participated for multiple years are growing up with a real, practical understanding of entrepreneurship.</p>
+          <p>The event has also served a larger purpose: since its first edition, the Trunk Sale has been a fundraiser for <strong>SickKids Hospital</strong>, raising over <strong>$9,000</strong> across eight years — a testament to the generosity of the Markham community and the power of gathering people together for a shared cause.</p>
+
+          <!-- SickKids Callout -->
+          <div class="sickkids-callout">
+            <div class="sickkids-callout-icon">
+              <span class="material-icons-round">favorite</span>
+            </div>
+            <div>
+              <h4>Proud SickKids Fundraising Partner</h4>
+              <p>Over 8 years, the Trunk Sale community has raised <strong>$9,000+</strong> for the SickKids Foundation — one family, one booth, and one donation at a time.</p>
+              <a href="../trunk_sale/Thank You Letter SickKids Foundation.pdf" target="_blank" class="btn btn-secondary btn-sm">View Thank You Letter <span class="material-icons-round" style="font-size:0.9rem;vertical-align:middle;">open_in_new</span></a>
+            </div>
+          </div>
+
+          <!-- Trailer -->
+          <h2 style="margin-top:56px;">Event Trailer</h2>
+          <p>A look inside the Trunk Sale experience.</p>
+          <div class="ts-trailer-wrap">
+            <video controls preload="metadata" poster="../trunk_sale/DSC04564.JPG">
+              <source src="../trunk_sale/Trailer.mov" type="video/mp4" />
+            </video>
+          </div>
+
+          <!-- Photo + Vertical Reel Grid -->
+          <h2 style="margin-top:56px;">Event Gallery</h2>
+          <div class="ts-media-grid">
+            <!-- Vertical looping reel spans 2 rows -->
+            <div class="ts-reel-item">
+              <video autoplay muted loop playsinline>
+                <source src="../trunk_sale/Trunk Sale (1).mp4" type="video/mp4" />
+              </video>
+            </div>
+            <!-- Photos fill the rest -->
+            <img src="../trunk_sale/DSC04564.JPG" alt="Trunk Sale event" />
+            <img src="../trunk_sale/DSC04566.JPG" alt="Trunk Sale vendors" />
+            <img src="../trunk_sale/DSC04635.JPG" alt="Trunk Sale families" />
+            <img src="../trunk_sale/HarborElite2.JPG" alt="Trunk Sale sponsor" />
+            <img class="ts-wide" src="../trunk_sale/24 flowers.JPG" alt="Trunk Sale booth" />
+            <img src="../trunk_sale/饭团.JPG" alt="Trunk Sale food vendor" />
+            <img src="../trunk_sale/健身房.JPG" alt="Trunk Sale activity" />
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="cs-sidebar" data-reveal data-reveal-delay="2">
+          <div class="cs-sidebar-card">
+            <h4>Event at a Glance</h4>
+            <div class="cs-result">
+              <div class="cs-result-num">8</div>
+              <div class="cs-result-label">Editions Hosted</div>
+            </div>
+            <div class="cs-result">
+              <div class="cs-result-num">200+</div>
+              <div class="cs-result-label">Family Booths Per Event</div>
+            </div>
+            <div class="cs-result">
+              <div class="cs-result-num">50+</div>
+              <div class="cs-result-label">Local Sponsors</div>
+            </div>
+            <div class="cs-result">
+              <div class="cs-result-num">$9,000+</div>
+              <div class="cs-result-label">Raised for SickKids</div>
+            </div>
+          </div>
+
+          <div class="cs-sidebar-card">
+            <h4>Event Partners</h4>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--dark-text);">
+                <span class="material-icons-round" style="font-size:1rem;color:var(--deep-blue);">handshake</span>
+                Markham CommunityLink
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--dark-text);">
+                <span class="material-icons-round" style="font-size:1rem;color:var(--deep-blue);">favorite</span>
+                SickKids Foundation
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--dark-text);">
+                <span class="material-icons-round" style="font-size:1rem;color:var(--deep-blue);">corporate_fare</span>
+                50+ Local Sponsors
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-sidebar-card">
+            <h4>Services Delivered</h4>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--dark-text);">
+                <span class="material-icons-round" style="font-size:1rem;color:var(--deep-blue);">event</span>
+                Full Event Production
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--dark-text);">
+                <span class="material-icons-round" style="font-size:1rem;color:var(--deep-blue);">store</span>
+                Vendor &amp; Sponsor Coordination
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--dark-text);">
+                <span class="material-icons-round" style="font-size:1rem;color:var(--deep-blue);">photo_camera</span>
+                Content Capture &amp; Distribution
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--dark-text);">
+                <span class="material-icons-round" style="font-size:1rem;color:var(--deep-blue);">people</span>
+                Community Building
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-sidebar-card" style="background:#fff8f0;border:1.5px solid #f4a261;">
+            <h4 style="color:#c04d1a;">SickKids Fundraiser</h4>
+            <p style="font-size:0.88rem;color:var(--dark-text);line-height:1.7;margin:8px 0 12px;">Proud fundraising partner of SickKids Hospital for all 8 editions of the Trunk Sale.</p>
+            <a href="../trunk_sale/Thank You Letter SickKids Foundation.pdf" target="_blank" style="font-size:0.82rem;color:#c04d1a;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:4px;">View Recognition Letter <span class="material-icons-round" style="font-size:0.9rem;">open_in_new</span></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:80px 0;background:var(--white);">
+    <div class="container text-center" data-reveal>
+      <h2 style="margin-bottom:16px;">Want to Bring Your Community Together?</h2>
+      <p style="max-width:480px;margin:0 auto 36px;">We've done it 8 times. We know how to build events that people remember — and keep coming back to. Let's talk.</p>
+      <a href="../contact.html" class="btn btn-primary btn-lg">Start a Conversation</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo"><img src="../brand_assets/logo colored.png" alt="Connectify Media" /><div class="footer-logo-text">CONNECTIFY<span>Media Inc.</span></div></div>
+          <p class="footer-desc">We build connections that convert — through bold strategy, curated events, and digital campaigns that leave a mark.</p>
+        </div>
+        <div class="footer-col"><h5>Company</h5><div class="footer-links"><a href="../about.html">About Us</a><a href="../services.html">Services</a><a href="../portfolio.html">Portfolio</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a></div></div>
+        <div class="footer-col"><h5>Contact</h5><div class="footer-links"><a href="mailto:connectifylife@gmail.com">connectifylife@gmail.com</a><a href="tel:+16475546887">(647) 554-6887</a><a href="#">Markham, Ontario</a></div></div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 Connectify Media Inc. All rights reserved.</p></div>
+    </div>
+    <div class="footer-gradient-bar"></div>
+  </footer>
+
+  <button class="back-to-top"><span class="material-icons-round">keyboard_arrow_up</span></button>
+  <script src="../js/main.js"></script>
+</body>
+</html>
