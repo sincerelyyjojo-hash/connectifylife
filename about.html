@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Connectify Media Inc.</title>
+  <meta name="description" content="Learn about Connectify Media's mission, team, and the story behind the agency." />
+  <link rel="icon" type="image/png" href="brand_assets/logo colored.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" />
+  <style>
+    /* Event card status tags */
+    .event-card-wrap { position: relative; cursor: pointer; }
+    .event-status-tag {
+      position: absolute; top: 12px; right: 12px; z-index: 10;
+      font-family: var(--font-primary); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 5px 13px; border-radius: 100px; pointer-events: none;
+    }
+    .event-status-upcoming { background: #7B52D8; color: #fff; box-shadow: 0 2px 10px rgba(123,82,216,0.4); }
+    .event-status-past { background: rgba(42,37,41,0.75); color: rgba(255,255,255,0.85); backdrop-filter: blur(6px); }
+
+    /* Event Modals */
+    .event-modal-backdrop {
+      position: fixed; inset: 0; background: rgba(18,8,28,0.72); backdrop-filter: blur(6px);
+      z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 24px;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    .event-modal-backdrop.open { opacity: 1; pointer-events: all; }
+    .event-modal {
+      background: #fff; border-radius: 24px; overflow: hidden; max-width: 640px; width: 100%;
+      box-shadow: 0 32px 80px rgba(42,37,41,0.25);
+      transform: translateY(24px) scale(0.97);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease;
+      opacity: 0; max-height: 90vh; overflow-y: auto;
+    }
+    .event-modal-backdrop.open .event-modal { transform: translateY(0) scale(1); opacity: 1; }
+    .event-modal-img { width: 100%; height: 280px; object-fit: cover; object-position: center top; display: block; }
+    .event-modal-body { padding: 32px 36px 36px; }
+    .event-modal-tag {
+      display: inline-block; font-family: var(--font-primary); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
+    }
+    .event-modal-tag-upcoming { background: #7B52D8; color: #fff; }
+    .event-modal-tag-past { background: var(--light-gray); color: var(--dark-text); }
+    .event-modal-body h2 { font-size: 1.5rem; margin-bottom: 8px; color: var(--dark-text); line-height: 1.25; }
+    .event-modal-meta { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+    .event-modal-meta-row {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-primary); font-size: 0.82rem; font-weight: 500; color: #7B52D8;
+    }
+    .event-modal-meta-row span.material-icons-round { font-size: 1rem; }
+    .event-modal-desc { font-size: 0.95rem; color: var(--gray); line-height: 1.8; margin-bottom: 28px; }
+    .event-modal-close {
+      position: absolute; top: 16px; right: 16px; width: 40px; height: 40px;
+      background: rgba(255,255,255,0.9); border-radius: 50%; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--dark-text);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: transform 0.2s ease, background 0.2s ease; z-index: 10;
+    }
+    .event-modal-close:hover { transform: scale(1.1); background: #fff; }
+    .event-modal-inner { position: relative; }
+
+    /* Testimonial slider — light background version */
+    .testimonial-slider-section { background: var(--warm-white); padding: 72px 0; overflow: hidden; }
+    .testimonial-slider-outer { overflow: hidden; width: 100%; }
+    .testimonial-slider-track {
+      display: flex; gap: 28px; width: max-content; padding: 0 28px; will-change: transform;
+    }
+    .testimonial-slide-card {
+      background: #fff; border: 1px solid rgba(54,76,132,0.1); border-radius: var(--radius-lg);
+      padding: 32px; width: 360px; flex-shrink: 0;
+      box-shadow: 0 4px 20px rgba(54,76,132,0.06);
+    }
+    .testimonial-slide-rating { font-family: var(--font-primary); font-size: 1.1rem; font-weight: 800; color: var(--deep-blue); line-height: 1; }
+    .testimonial-slide-rating-sub {
+      font-size: 0.7rem; color: var(--gray); margin-bottom: 18px; margin-top: 2px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .testimonial-slide-card p { font-size: 0.9rem; color: var(--dark-text); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
+    .t-name { font-family: var(--font-primary); font-weight: 700; font-size: 0.88rem; color: var(--dark-text); }
+    .t-role { font-size: 0.78rem; color: var(--gray); margin-top: 2px; }
+    @keyframes testimonialScrollAbout {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="navbar-logo">
+        <img src="brand_assets/logo colored.png" alt="Connectify Media Logo" />
+        <div class="navbar-logo-text">CONNECTIFY<span>Media Inc.</span></div>
+      </a>
+      <div class="navbar-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a href="contact.html" class="btn btn-primary btn-sm navbar-cta">Get Started</a>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary">Get Started</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg-orb"></div>
+    <div class="container text-center" data-reveal>
+
+      <h1 style="max-width:700px;margin:0 auto 20px;">We Are <span class="text-gradient">Connectify Media</span></h1>
+      <p class="lead" style="max-width:560px;margin:0 auto;">We connect brands with diverse communities through culturally informed, tailored marketing.</p>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <section class="section-pad-sm bg-white">
+    <div class="container">
+      <div class="stats-strip" data-reveal>
+        <div class="stat-item">
+          <div class="stat-number" data-target="7" data-suffix="+">0+</div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+        <div class="stats-strip-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="150" data-suffix="+">0+</div>
+          <div class="stat-label">Events Curated</div>
+        </div>
+        <div class="stats-strip-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="80" data-suffix="+">0+</div>
+          <div class="stat-label">Brand Partners</div>
+        </div>
+        <div class="stats-strip-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="12" data-suffix="">0</div>
+          <div class="stat-label">Team Members</div>
+        </div>
+        <div class="stats-strip-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="98" data-suffix="%">0%</div>
+          <div class="stat-label">Client Retention</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="section-pad bg-warm">
+    <div class="container">
+      <div class="mission-grid">
+        <div class="mission-visual" data-reveal>
+          <div class="mission-img-placeholder" style="position:relative;overflow:hidden;border-radius:var(--radius-xl);">
+            <img src="brand_assets/Office Photo 1058097.jpg" alt="Connectify Media Office" style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="mission-badge">
+            <div>
+              <div class="mission-badge-num">2018</div>
+              <div class="mission-badge-label">Founded in<br/>Markham, Ontario</div>
+            </div>
+          </div>
+        </div>
+        <div class="mission-content" data-reveal data-reveal-delay="2">
+
+          <h2 class="section-title">We make connections that matter.</h2>
+          <p style="margin-bottom:20px;">Our mission is to bridge diverse communities by creating meaningful connections with tailored marketing solutions. With a strong foundation in Asian community engagement, we bring expertise and cultural insight to help brands authentically reach and resonate with varied audiences.</p>
+          <p style="margin-bottom:32px;">We're committed to fostering inclusivity and building lasting connections across cultures.</p>
+          <div class="mission-values">
+            <div class="mission-value-item">
+              <div class="mission-value-icon"><span class="material-icons-round">bolt</span></div>
+              <div>
+                <div class="mission-value-title">Bold by Default</div>
+                <p class="mission-value-desc">We push for ideas that stand out, not just check boxes. Average is not an option.</p>
+              </div>
+            </div>
+            <div class="mission-value-item">
+              <div class="mission-value-icon"><span class="material-icons-round">handshake</span></div>
+              <div>
+                <div class="mission-value-title">Partnership First</div>
+                <p class="mission-value-desc">We become an extension of your team — invested in your wins as much as you are.</p>
+              </div>
+            </div>
+            <div class="mission-value-item">
+              <div class="mission-value-icon"><span class="material-icons-round">verified</span></div>
+              <div>
+                <div class="mission-value-title">Results-Driven</div>
+                <p class="mission-value-desc">Every decision is anchored in strategy and backed by data. We measure what matters.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO PREVIEW -->
+  <section class="section-pad bg-white">
+    <div class="container">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;flex-wrap:wrap;gap:24px;" data-reveal>
+        <div>
+
+          <h2 class="section-title" style="margin-bottom:0;">A Taste of the Portfolio</h2>
+        </div>
+        <a href="portfolio.html" class="btn btn-secondary">View Full Portfolio</a>
+      </div>
+      <div class="case-studies-grid">
+        <div class="case-study-card" data-reveal data-reveal-delay="1">
+          <div style="width:100%;height:200px;overflow:hidden;">
+            <img src="halloween_event_2025/29807022b142b8c7442236a859f6f57e.JPG" alt="Halloween Pop-Up Event" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+          </div>
+          <div class="case-study-body">
+            <div class="case-study-tags">
+              <span class="case-study-tag">Event Curation</span>
+              <span class="case-study-tag">Community Event</span>
+            </div>
+            <h3>Halloween Pop-Up Event 2025</h3>
+            <p>Markham's biggest Halloween community pop-up — 4,000+ attendees, 10+ sponsors, and 20+ vendor booths connecting local businesses to their community.</p>
+            <div class="case-study-metrics">
+              <div><div class="metric-val">4K+</div><div class="metric-label">Attendees</div></div>
+              <div><div class="metric-val">10+</div><div class="metric-label">Sponsors</div></div>
+              <div><div class="metric-val">800K</div><div class="metric-label">Impressions</div></div>
+            </div>
+            <a href="portfolio/halloween-popup.html" class="btn btn-primary btn-sm">Read Case Study</a>
+          </div>
+        </div>
+        <div class="case-study-card" data-reveal data-reveal-delay="2">
+          <div style="width:100%;height:200px;overflow:hidden;">
+            <img src="event_asset/5672.JPG" alt="AI Empowering Landscaping Workshop" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+          </div>
+          <div class="case-study-body">
+            <div class="case-study-tags">
+              <span class="case-study-tag">Workshop</span>
+              <span class="case-study-tag">AI &amp; Technology</span>
+            </div>
+            <h3>AI Empowering Landscaping Workshop</h3>
+            <p>Teaching contractors how to use AI for quotes, emails, website building, and digital marketing — bridging the gap in the digital economy.</p>
+            <div class="case-study-metrics">
+              <div><div class="metric-val">30+</div><div class="metric-label">Contractors</div></div>
+              <div><div class="metric-val">6+</div><div class="metric-label">AI Tools</div></div>
+              <div><div class="metric-val">100%</div><div class="metric-label">Satisfaction</div></div>
+            </div>
+            <a href="portfolio/ai-workshop.html" class="btn btn-primary btn-sm">Read Case Study</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED EVENTS (same as home page) -->
+  <section class="section-pad bg-white" id="events">
+    <div class="container">
+      <div style="margin-bottom:56px;" data-reveal>
+        <h2 class="section-title">Be part of what's next.</h2>
+        <p class="lead">Stay ahead with our latest events, experiences, and opportunities to connect.</p>
+      </div>
+      <div class="events-grid">
+        <div class="event-card-wrap" data-reveal data-reveal-delay="1" onclick="openModal('modal-easter')">
+          <span class="event-status-tag event-status-upcoming">Upcoming</span>
+          <div class="event-card" style="cursor:pointer;">
+            <div style="width:100%;height:200px;overflow:hidden;">
+              <img src="event_asset/Untitled design.png" alt="Easter Egg Hunt" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+            </div>
+            <div class="event-card-body">
+              <span class="event-tag">Community Event</span>
+              <div class="event-date"><span class="material-icons-round" style="font-size:0.9rem;">calendar_today</span> Sunday, April 5, 2026 · Markham, Ontario</div>
+              <h3>Easter Egg Hunt &amp; Family Fun Day</h3>
+              <p>Free family fun with egg hunts, face painting, carnival games, bingo, and bubble tea for all ages.</p>
+              <span class="btn btn-primary btn-sm">Learn More</span>
+            </div>
+          </div>
+        </div>
+        <div class="event-card-wrap" data-reveal data-reveal-delay="2" onclick="openModal('modal-ai')">
+          <span class="event-status-tag event-status-past">Past Event</span>
+          <div class="event-card" style="cursor:pointer;">
+            <div style="width:100%;height:200px;overflow:hidden;">
+              <img src="event_asset/5672.JPG" alt="AI Empowering Landscaping Workshop" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+            </div>
+            <div class="event-card-body">
+              <span class="event-tag">Workshop</span>
+              <div class="event-date"><span class="material-icons-round" style="font-size:0.9rem;">calendar_today</span> Saturday, March 14, 2026 · Newmarket, Ontario</div>
+              <h3>AI Empowering Landscaping Workshop</h3>
+              <p>An exclusive workshop on how AI is transforming the landscaping industry — practical insights for pros and enthusiasts alike.</p>
+              <span class="btn btn-primary btn-sm">View Case Study</span>
+            </div>
+          </div>
+        </div>
+        <div class="event-card-wrap" data-reveal data-reveal-delay="3" onclick="openModal('modal-halloween')">
+          <span class="event-status-tag event-status-past">Past Event</span>
+          <div class="event-card" style="cursor:pointer;">
+            <div style="width:100%;height:200px;overflow:hidden;">
+              <img src="halloween_event_2025/29807022b142b8c7442236a859f6f57e.JPG" alt="Halloween Pop-Up Event" style="width:100%;height:100%;object-fit:cover;object-position:center center;" />
+            </div>
+            <div class="event-card-body">
+              <span class="event-tag">Community Event</span>
+              <div class="event-date"><span class="material-icons-round" style="font-size:0.9rem;">calendar_today</span> October 26, 2025 · Markham, Ontario</div>
+              <h3>Halloween Pop-Up Event</h3>
+              <p>A massive Halloween celebration with 4,000+ attendees, costumed characters, and unforgettable community moments.</p>
+              <span class="btn btn-primary btn-sm">View Case Study</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENT MODALS (same as home page) -->
+  <div class="event-modal-backdrop" id="modal-easter" onclick="closeModalOutside(event, 'modal-easter')">
+    <div class="event-modal-inner" style="max-width:640px;width:100%;">
+      <button class="event-modal-close" onclick="closeModal('modal-easter')"><span class="material-icons-round">close</span></button>
+      <div class="event-modal">
+        <img src="event_asset/Untitled design.png" alt="Easter Egg Hunt" class="event-modal-img" style="object-position:center top;" />
+        <div class="event-modal-body">
+          <span class="event-modal-tag event-modal-tag-upcoming">Upcoming Event</span>
+          <h2>Easter Egg Hunt &amp; Family Fun Day</h2>
+          <div class="event-modal-meta">
+            <div class="event-modal-meta-row"><span class="material-icons-round">calendar_today</span> Sunday, April 5, 2026 &nbsp;|&nbsp; 12:00 PM – 5:00 PM</div>
+            <div class="event-modal-meta-row"><span class="material-icons-round">location_on</span> 9390 Woodbine Ave, Markham, Ontario</div>
+            <div class="event-modal-meta-row"><span class="material-icons-round">confirmation_number</span> Free Admission</div>
+          </div>
+          <p class="event-modal-desc">Join us for a vibrant, free community celebration in the heart of Markham! The Easter Egg Hunt &amp; Family Fun Day is packed with activities for all ages — from a pop-it egg hunt and face painting to carnival games, bingo, prizes, and complimentary bubble tea. Presented by Connectify Media.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="event-modal-backdrop" id="modal-ai" onclick="closeModalOutside(event, 'modal-ai')">
+    <div class="event-modal-inner" style="max-width:640px;width:100%;">
+      <button class="event-modal-close" onclick="closeModal('modal-ai')"><span class="material-icons-round">close</span></button>
+      <div class="event-modal">
+        <img src="event_asset/5672.JPG" alt="AI Empowering Landscaping Workshop" class="event-modal-img" style="object-position:center top;" />
+        <div class="event-modal-body">
+          <span class="event-modal-tag event-modal-tag-past">Past Event</span>
+          <h2>AI Empowering Landscaping Workshop</h2>
+          <div class="event-modal-meta">
+            <div class="event-modal-meta-row"><span class="material-icons-round">calendar_today</span> Saturday, March 14, 2026 &nbsp;|&nbsp; 10:00 AM – 12:00 PM</div>
+            <div class="event-modal-meta-row"><span class="material-icons-round">location_on</span> 415 Pickering Crescent, Newmarket, Ontario L3Y 8G8</div>
+            <div class="event-modal-meta-row"><span class="material-icons-round">business</span> Presented by 777 Stone Inc., LikeWood &amp; Connectify Media</div>
+          </div>
+          <p class="event-modal-desc">This exclusive workshop brought together landscaping professionals to explore how AI is reshaping the industry. Attendees gained hands-on insight into AI tools for quotes, client management, website building, flyer creation, and operational efficiency.</p>
+          <a href="portfolio/ai-workshop.html" class="btn btn-primary">View Case Study <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="event-modal-backdrop" id="modal-halloween" onclick="closeModalOutside(event, 'modal-halloween')">
+    <div class="event-modal-inner" style="max-width:640px;width:100%;">
+      <button class="event-modal-close" onclick="closeModal('modal-halloween')"><span class="material-icons-round">close</span></button>
+      <div class="event-modal">
+        <img src="halloween_event_2025/29807022b142b8c7442236a859f6f57e.JPG" alt="Halloween Pop-Up Event" class="event-modal-img" style="object-position:center center;" />
+        <div class="event-modal-body">
+          <span class="event-modal-tag event-modal-tag-past">Past Event</span>
+          <h2>Halloween Pop-Up Event</h2>
+          <div class="event-modal-meta">
+            <div class="event-modal-meta-row"><span class="material-icons-round">calendar_today</span> Sunday, October 26, 2025</div>
+            <div class="event-modal-meta-row"><span class="material-icons-round">location_on</span> Markham, Ontario</div>
+            <div class="event-modal-meta-row"><span class="material-icons-round">groups</span> 4,000+ Attendees &nbsp;·&nbsp; 10+ Sponsors &nbsp;·&nbsp; 800K Impressions</div>
+          </div>
+          <p class="event-modal-desc">One of Markham's most anticipated Halloween pop-up experiences — 4,000+ community members, costumed characters, interactive activities, 10+ sponsors, and 20+ vendor booths. Curated and hosted by Connectify Media Inc. in partnership with Markham CommunityLink.</p>
+          <a href="portfolio/halloween-popup.html" class="btn btn-primary">View Case Study <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS — light background auto-scroll -->
+  <section class="testimonial-slider-section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:48px;" data-reveal>
+        <h2 class="section-title">Built on trust.</h2>
+        <p class="section-desc">We build long-term partnerships through results, reliability, and real value.</p>
+      </div>
+    </div>
+    <div class="testimonial-slider-outer" style="padding-bottom:8px;">
+      <div class="testimonial-slider-track" id="about-testimonial-track">
+          <div class="testimonial-slide-card">
+            <div class="testimonial-slide-rating">10/10</div>
+            <div class="testimonial-slide-rating-sub">Job Satisfaction</div>
+            <p>"I attended Connectify Media's Halloween pop-up event and saw immediate growth. Inquiries rose by 40%, and I gained over 100 new followers from a single event."</p>
+            <div class="t-name">JoJo</div>
+            <div class="t-role">Y2W Facepaint</div>
+          </div>
+          <div class="testimonial-slide-card">
+            <div class="testimonial-slide-rating">10/10</div>
+            <div class="testimonial-slide-rating-sub">Job Satisfaction</div>
+            <p>"Working with Connectify Media has been a great experience. Their personalized marketing plan and in-depth market research really set them apart, and their team is extremely professional."</p>
+            <div class="t-name">Kyle &amp; Ian</div>
+            <div class="t-role">777 Stone Inc.</div>
+          </div>
+          <div class="testimonial-slide-card">
+            <div class="testimonial-slide-rating">10/10</div>
+            <div class="testimonial-slide-rating-sub">Job Satisfaction</div>
+            <p>"Connectify Media produces content quickly without compromising quality. Efficient, reliable, and highly recommended."</p>
+            <div class="t-name">Sarah</div>
+            <div class="t-role">Sarah Shao Real Estate Team</div>
+          </div>
+          <div class="testimonial-slide-card">
+            <div class="testimonial-slide-rating">10/10</div>
+            <div class="testimonial-slide-rating-sub">Job Satisfaction</div>
+            <p>"Connectify Media is a highly professional team, and their flyer designs are visually impressive. Highly recommend."</p>
+            <div class="t-name">Vincent</div>
+            <div class="t-role">Greatland Construction</div>
+          </div>
+          <div class="testimonial-slide-card">
+            <div class="testimonial-slide-rating">10/10</div>
+            <div class="testimonial-slide-rating-sub">Job Satisfaction</div>
+            <p>"I attended Connectify Media's Halloween pop-up event and saw immediate growth. Inquiries rose by 40%, and I gained over 100 new followers from a single event."</p>
+            <div class="t-name">JoJo</div>
+            <div class="t-role">Y2W Facepaint</div>
+          </div>
+          <div class="testimonial-slide-card">
+            <div class="testimonial-slide-rating">10/10</div>
+            <div class="testimonial-slide-rating-sub">Job Satisfaction</div>
+            <p>"Working with Connectify Media has been a great experience. Their personalized marketing plan and in-depth market research really set them apart, and their team is extremely professional."</p>
+            <div class="t-name">Kyle &amp; Ian</div>
+            <div class="t-role">777 Stone Inc.</div>
+          </div>
+          <div class="testimonial-slide-card">
+            <div class="testimonial-slide-rating">10/10</div>
+            <div class="testimonial-slide-rating-sub">Job Satisfaction</div>
+            <p>"Connectify Media produces content quickly without compromising quality. Efficient, reliable, and highly recommended."</p>
+            <div class="t-name">Sarah</div>
+            <div class="t-role">Sarah Shao Real Estate Team</div>
+          </div>
+          <div class="testimonial-slide-card">
+            <div class="testimonial-slide-rating">10/10</div>
+            <div class="testimonial-slide-rating-sub">Job Satisfaction</div>
+            <p>"Connectify Media is a highly professional team, and their flyer designs are visually impressive. Highly recommend."</p>
+            <div class="t-name">Vincent</div>
+            <div class="t-role">Greatland Construction</div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter-section">
+    <div class="newsletter-bg-orb newsletter-bg-orb-1"></div>
+    <div class="newsletter-bg-orb newsletter-bg-orb-2"></div>
+    <div class="container">
+      <div class="newsletter-inner" data-reveal>
+
+        <h2>Stay in the Loop</h2>
+        <p>Get the latest from Connectify — event recaps, marketing tips, and early access to new programs.</p>
+        <form class="newsletter-form" novalidate>
+          <input type="email" class="newsletter-input" placeholder="Your email address" required />
+          <button type="submit" class="btn btn-white">Subscribe</button>
+        </form>
+        <p class="newsletter-privacy">No spam, ever. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="brand_assets/logo colored.png" alt="Connectify Media" />
+            <div class="footer-logo-text">CONNECTIFY<span>Media Inc.</span></div>
+          </div>
+          <p class="footer-desc">We build connections that convert — through bold strategy, curated events, and digital campaigns that leave a mark.</p>
+        </div>
+        <div class="footer-col"><h5>Company</h5><div class="footer-links"><a href="about.html">About Us</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div></div>
+        <div class="footer-col"><h5>Services</h5><div class="footer-links"><a href="services.html">Event Curation</a><a href="services.html">Digital Marketing</a><a href="services.html">Brand Strategy</a><a href="services.html">Content Production</a><a href="services.html">Community Building</a></div></div>
+        <div class="footer-col"><h5>Contact</h5><div class="footer-links"><a href="mailto:contact@connectifylife.com">contact@connectifylife.com</a><a href="tel:+16475546887">(647) 554-6887</a><a href="#">Markham, Ontario</a><a href="contact.html">Get a Quote</a></div></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Connectify Media Inc. All rights reserved.</p>
+              </div>
+    </div>
+    <div class="footer-gradient-bar"></div>
+  </footer>
+
+  <button class="back-to-top"><span class="material-icons-round">keyboard_arrow_up</span></button>
+  <script src="js/main.js"></script>
+  <script>
+    function openModal(id) {
+      var m = document.getElementById(id);
+      if (m) { m.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    }
+    function closeModal(id) {
+      var m = document.getElementById(id);
+      if (m) { m.classList.remove('open'); document.body.style.overflow = ''; }
+    }
+    function closeModalOutside(e, id) {
+      if (e.target === document.getElementById(id)) closeModal(id);
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') { ['modal-easter','modal-ai','modal-halloween'].forEach(closeModal); }
+    });
+
+    // Testimonial slider — pixel-measured for reliable loop
+    (function() {
+      function initTestimonialScroll() {
+        var track = document.getElementById('about-testimonial-track');
+        if (!track) return;
+        var cards = track.querySelectorAll('.testimonial-slide-card');
+        var half = Math.floor(cards.length / 2);
+        if (half === 0) return;
+        var w = 0;
+        var gap = 28;
+        for (var i = 0; i < half; i++) { w += cards[i].getBoundingClientRect().width; }
+        w += gap * half;
+        if (w === 0) { requestAnimationFrame(initTestimonialScroll); return; }
+        var styleEl = document.createElement('style');
+        styleEl.textContent = '@keyframes testimonialAboutPx{from{transform:translateX(0)}to{transform:translateX(-' + w + 'px)}}';
+        document.head.appendChild(styleEl);
+        track.style.animation = 'testimonialAboutPx 45s linear infinite';
+      }
+      window.addEventListener('load', initTestimonialScroll);
+    })();
+  </script>
+</body>
+</html>

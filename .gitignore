@@ -1,0 +1,8 @@
+.DS_Store
+.claude/settings.local.json
+temporary screenshots/
+
+# Large video files — host externally for GitHub Pages
+halloween_event_2025/469_raw.MP4
+brand_assets/home page video.mp4
+easter_event_2025/Synology Drive Video (1).MOV

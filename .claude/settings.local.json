@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(lsof -ti:3000)",
+      "Bash(node serve.mjs)",
+      "Bash(node screenshot.mjs http://localhost:3000 home)",
+      "Bash(/usr/local/bin/node --version)",
+      "Bash(/opt/homebrew/bin/node --version)"
+    ]
+  }
+}

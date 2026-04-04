@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Connectify Media Inc.</title>
+  <meta name="description" content="Explore our work — case studies, campaigns, and events from Connectify Media." />
+  <link rel="icon" type="image/png" href="brand_assets/logo colored.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" />
+  <style>
+    /* Filter bar */
+    .portfolio-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+      justify-content: center;
+    }
+    .filter-btn {
+      font-family: var(--font-primary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 9px 20px;
+      border-radius: 100px;
+      background: var(--white);
+      color: var(--gray);
+      border: 1.5px solid rgba(54,76,132,0.15);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--deep-blue);
+      color: var(--white);
+      border-color: var(--deep-blue);
+    }
+    /* Portfolio bento items are links */
+    .bento-item { display: block; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="navbar-logo">
+        <img src="brand_assets/logo colored.png" alt="Connectify Media Logo" />
+        <div class="navbar-logo-text">CONNECTIFY<span>Media Inc.</span></div>
+      </a>
+      <div class="navbar-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a href="contact.html" class="btn btn-primary btn-sm navbar-cta">Get Started</a>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary">Get Started</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg-orb"></div>
+    <div class="container text-center" data-reveal>
+
+      <h1 style="max-width:700px;margin:0 auto 20px;">Stories We're <span class="text-gradient">Proud to Tell</span></h1>
+      <p class="lead" style="max-width:540px;margin:0 auto;">Every project tells a story — of a brand that wanted to grow, and a team that made it happen. Click into any case study to see the full story.</p>
+    </div>
+  </section>
+
+  <!-- BENTO PORTFOLIO GRID -->
+  <section class="section-pad bg-warm">
+    <div class="container">
+
+      <!-- Bento Grid -->
+      <div class="bento-grid" data-reveal>
+
+        <!-- Item 1 — Large featured -->
+        <a href="portfolio/lumina-summer.html" class="bento-item bento-item-1">
+          <div class="bento-img-placeholder grad-1" style="width:100%;height:100%;"></div>
+          <div class="bento-overlay">
+            <div class="bento-tags">
+              <span class="bento-tag">Event Curation</span>
+              <span class="bento-tag">Brand Activation</span>
+            </div>
+            <div class="bento-title">Lumina Summer Experience</div>
+            <div class="bento-desc">A multi-sensory brand activation for 800+ guests that generated 2.1M organic impressions in one weekend.</div>
+            <span class="bento-cta">View Case Study <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></span>
+          </div>
+        </a>
+
+        <!-- Item 2 -->
+        <a href="portfolio/peak-digital.html" class="bento-item bento-item-2">
+          <div class="bento-img-placeholder grad-3" style="width:100%;height:100%;"></div>
+          <div class="bento-overlay">
+            <div class="bento-tags"><span class="bento-tag">Digital Marketing</span></div>
+            <div class="bento-title">Peak Brand Digital Campaign</div>
+            <div class="bento-desc">6-month strategy that tripled leads.</div>
+            <span class="bento-cta">View Case Study <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></span>
+          </div>
+        </a>
+
+        <!-- Item 3 -->
+        <a href="portfolio/creative-connect.html" class="bento-item bento-item-3">
+          <div class="bento-img-placeholder grad-5" style="width:100%;height:100%;"></div>
+          <div class="bento-overlay">
+            <div class="bento-tags"><span class="bento-tag">Community Event</span></div>
+            <div class="bento-title">Creative Connect Summit</div>
+            <div class="bento-desc">500 attendees, 40 speakers, one unforgettable day.</div>
+            <span class="bento-cta">View Case Study <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></span>
+          </div>
+        </a>
+
+        <!-- Item 4 -->
+        <a href="portfolio/verve-brand.html" class="bento-item bento-item-4">
+          <div class="bento-img-placeholder grad-2" style="width:100%;height:100%;"></div>
+          <div class="bento-overlay">
+            <div class="bento-tags"><span class="bento-tag">Brand Strategy</span></div>
+            <div class="bento-title">Verve Group Rebrand</div>
+            <span class="bento-cta">View Case Study <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></span>
+          </div>
+        </a>
+
+        <!-- Item 5 -->
+        <a href="portfolio/skyline-launch.html" class="bento-item bento-item-5">
+          <div class="bento-img-placeholder" style="background:linear-gradient(135deg,#f7971e,#ffd200);width:100%;height:100%;"></div>
+          <div class="bento-overlay">
+            <div class="bento-tags"><span class="bento-tag">Product Launch</span></div>
+            <div class="bento-title">Skyline Co. Fall Launch</div>
+            <span class="bento-cta">View Case Study <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></span>
+          </div>
+        </a>
+
+        <!-- Item 6 -->
+        <a href="portfolio/pulse-content.html" class="bento-item bento-item-6">
+          <div class="bento-img-placeholder" style="background:linear-gradient(135deg,#11998e,#38ef7d);width:100%;height:100%;"></div>
+          <div class="bento-overlay">
+            <div class="bento-tags"><span class="bento-tag">Content Production</span></div>
+            <div class="bento-title">Pulse Media Content Series</div>
+            <span class="bento-cta">View Case Study <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></span>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Second Row of Bento — Community Events -->
+      <div class="bento-grid" style="margin-top:20px;" data-reveal>
+
+        <!-- Halloween — large featured -->
+        <a href="portfolio/halloween-popup.html" class="bento-item bento-item-1" style="position:relative;">
+          <img src="halloween_event_2025/29807022b142b8c7442236a859f6f57e.JPG" alt="Halloween Pop-Up Event" class="bento-img" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+          <div class="bento-overlay">
+            <div class="bento-tags"><span class="bento-tag">Community Event</span><span class="bento-tag">Event Curation</span></div>
+            <div class="bento-title">Halloween Pop-Up 2025</div>
+            <div class="bento-desc">4,000+ attendees, 10+ sponsors, 20+ vendor booths — Markham's biggest Halloween community celebration.</div>
+            <span class="bento-cta">View Case Study <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></span>
+          </div>
+        </a>
+
+        <!-- AI Workshop -->
+        <a href="portfolio/ai-workshop.html" class="bento-item bento-item-2" style="position:relative;">
+          <img src="event_asset/5672.JPG" alt="AI Empowering Landscaping Workshop" class="bento-img" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+          <div class="bento-overlay">
+            <div class="bento-tags"><span class="bento-tag">Workshop</span><span class="bento-tag">AI &amp; Technology</span></div>
+            <div class="bento-title">AI Empowering Landscaping Workshop</div>
+            <div class="bento-desc">Teaching contractors to use AI for quotes, emails, websites, and flyers.</div>
+            <span class="bento-cta">View Case Study <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></span>
+          </div>
+        </a>
+
+        <!-- Easter Fun Day -->
+        <a href="contact.html" class="bento-item bento-item-3" style="position:relative;">
+          <img src="event_asset/Untitled design.png" alt="Easter Egg Hunt &amp; Family Fun Day" class="bento-img" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+          <div class="bento-overlay">
+            <div class="bento-tags"><span class="bento-tag">Community Event</span><span class="bento-tag">Upcoming</span></div>
+            <div class="bento-title">Easter Egg Hunt &amp; Family Fun Day</div>
+            <div class="bento-desc">Free family fun — egg hunts, face painting, carnival games &amp; more. April 2026, Markham.</div>
+            <span class="bento-cta">Learn More <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></span>
+          </div>
+        </a>
+
+        <!-- Nova Gala -->
+        <a href="portfolio/nova-gala.html" class="bento-item bento-item-4">
+          <div class="bento-img-placeholder" style="background:linear-gradient(135deg,#8360c3,#2ebf91);width:100%;height:100%;"></div>
+          <div class="bento-overlay">
+            <div class="bento-tags"><span class="bento-tag">Gala</span><span class="bento-tag">Event</span></div>
+            <div class="bento-title">Nova Events Annual Gala</div>
+            <span class="bento-cta">View Case Study <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></span>
+          </div>
+        </a>
+
+        <!-- Lumina Campaign -->
+        <a href="portfolio/lumina-summer.html" class="bento-item bento-item-5">
+          <div class="bento-img-placeholder grad-6" style="width:100%;height:100%;"></div>
+          <div class="bento-overlay">
+            <div class="bento-tags"><span class="bento-tag">Integrated Campaign</span></div>
+            <div class="bento-title">Lumina Summer Experience</div>
+            <span class="bento-cta">View Case Study <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></span>
+          </div>
+        </a>
+
+        <!-- Peak Digital -->
+        <a href="portfolio/peak-digital.html" class="bento-item bento-item-6">
+          <div class="bento-img-placeholder" style="background:linear-gradient(135deg,#fc4a1a,#f7b733);width:100%;height:100%;"></div>
+          <div class="bento-overlay">
+            <div class="bento-tags"><span class="bento-tag">Digital Marketing</span></div>
+            <div class="bento-title">Peak Brand Campaign</div>
+            <span class="bento-cta">View Case Study <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:80px 0;background:var(--white);">
+    <div class="container text-center" data-reveal>
+
+      <h2 style="margin-bottom:16px;">Want Results Like These?</h2>
+      <p style="max-width:480px;margin:0 auto 36px;">Let's build your next case study together. Reach out and tell us what you're working toward.</p>
+      <a href="contact.html" class="btn btn-primary btn-lg">Start a Conversation</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="brand_assets/logo colored.png" alt="Connectify Media" />
+            <div class="footer-logo-text">CONNECTIFY<span>Media Inc.</span></div>
+          </div>
+          <p class="footer-desc">We build connections that convert — through bold strategy, curated events, and digital campaigns that leave a mark.</p>
+        </div>
+        <div class="footer-col"><h5>Company</h5><div class="footer-links"><a href="about.html">About Us</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div></div>
+        <div class="footer-col"><h5>Services</h5><div class="footer-links"><a href="services.html">Event Curation</a><a href="services.html">Digital Marketing</a><a href="services.html">Brand Strategy</a><a href="services.html">Content Production</a><a href="services.html">Community Building</a></div></div>
+        <div class="footer-col"><h5>Contact</h5><div class="footer-links"><a href="mailto:contact@connectifylife.com">contact@connectifylife.com</a><a href="tel:+16475546887">(647) 554-6887</a><a href="#">Markham, Ontario</a><a href="contact.html">Get a Quote</a></div></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Connectify Media Inc. All rights reserved.</p>
+              </div>
+    </div>
+    <div class="footer-gradient-bar"></div>
+  </footer>
+
+  <button class="back-to-top"><span class="material-icons-round">keyboard_arrow_up</span></button>
+  <script src="js/main.js"></script>
+  <script>
+    // Portfolio filter
+    document.querySelectorAll('.filter-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
