@@ -25,18 +25,6 @@
       height: 100%;
       object-fit: cover;
       z-index: 0;
-      pointer-events: none;
-    }
-    .hero-video-bg iframe {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 177.78vh; /* 16:9 ratio */
-      height: 100%;
-      min-width: 100%;
-      min-height: 56.25vw; /* 16:9 ratio */
-      transform: translate(-50%, -50%);
-      border: none;
     }
     .hero-video-overlay {
       position: absolute;
@@ -431,9 +419,9 @@
 
   <!-- HERO VIDEO -->
   <section class="hero-video-wrap">
-    <div class="hero-video-bg">
-      <iframe src="https://www.youtube.com/embed/WYP4B9ExYEg?autoplay=1&mute=1&loop=1&playlist=WYP4B9ExYEg&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <video autoplay muted loop playsinline class="hero-video-bg">
+      <source src="brand_assets/home page video(1).mp4" type="video/mp4" />
+    </video>
     <div class="hero-video-overlay"></div>
     <div class="hero-video-content" data-reveal>
       <h1>All-In-One Multimedia<br />Marketing Agency.</h1>
@@ -810,31 +798,32 @@
       </div>
       <div class="case-studies-grid">
         <div class="case-study-card" data-reveal data-reveal-delay="1">
-          <div style="width:100%;height:260px;overflow:hidden;">
-            <img src="event_asset/IMG_2643.JPG" alt="Halloween Pop-Up Event" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+          <div style="width:100%;height:260px;overflow:hidden;background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);display:flex;align-items:center;justify-content:center;">
+            <img src="brand_logos/777stone.png" alt="777Stone Inc." style="max-width:60%;max-height:140px;object-fit:contain;" />
           </div>
           <div class="case-study-body">
             <div class="case-study-tags">
+              <span class="case-study-tag">Content Production</span>
+              <span class="case-study-tag">Digital Marketing</span>
               <span class="case-study-tag">Event Curation</span>
-              <span class="case-study-tag">Community Event</span>
             </div>
-            <h3>Halloween Pop-Up Event</h3>
-            <p>A landmark Halloween celebration in Markham that drew thousands of attendees and generated massive brand awareness for our sponsor partners.</p>
+            <h3>777Stone Inc.</h3>
+            <p>Nearly 100× organic lead growth in just 6 months — driven by content strategy, community events, and zero paid ads.</p>
             <div class="case-study-metrics">
               <div>
-                <div class="metric-val">4K+</div>
-                <div class="metric-label">Attendees</div>
+                <div class="metric-val">~100×</div>
+                <div class="metric-label">Lead Growth</div>
               </div>
               <div>
-                <div class="metric-val">10+</div>
-                <div class="metric-label">Sponsors</div>
+                <div class="metric-val">6 mo</div>
+                <div class="metric-label">Timeline</div>
               </div>
               <div>
-                <div class="metric-val">800K</div>
-                <div class="metric-label">Impressions</div>
+                <div class="metric-val">100%</div>
+                <div class="metric-label">Organic</div>
               </div>
             </div>
-            <a href="portfolio/halloween-popup.html" class="btn btn-primary btn-sm">Read Case Study <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></a>
+            <a href="portfolio/777stone.html" class="btn btn-primary btn-sm">Read Case Study <span class="material-icons-round" style="font-size:1rem;">arrow_forward</span></a>
           </div>
         </div>
         <div class="case-study-card" data-reveal data-reveal-delay="2">

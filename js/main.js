@@ -91,52 +91,87 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ---- Newsletter form ----
+  // ---- Newsletter form → Google Sheets ----
+  // To activate: deploy the Apps Script in newsletter-script.gs as a Web App,
+  // then replace NEWSLETTER_ENDPOINT below with your deployed URL.
+  var NEWSLETTER_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxPLACEHOLDER/exec';
+
   document.querySelectorAll('.newsletter-form').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      const input = form.querySelector('input[type="email"]');
-      if (input && input.value) {
-        input.value = '';
-        const msg = form.parentElement.querySelector('.form-success');
-        if (msg) {
-          msg.style.display = 'block';
-          setTimeout(function () { msg.style.display = 'none'; }, 4000);
-        } else {
-          const btn = form.querySelector('button');
-          if (btn) {
-            const orig = btn.textContent;
-            btn.textContent = 'You\'re in!';
-            btn.style.background = '#E7F1A8';
-            btn.style.color = '#364C84';
-            setTimeout(function () {
-              btn.textContent = orig;
-              btn.style.background = '';
-              btn.style.color = '';
-            }, 3000);
-          }
-        }
+      var input = form.querySelector('input[type="email"]');
+      var email = input ? input.value.trim() : '';
+      if (!email) return;
+
+      var btn = form.querySelector('button');
+      if (btn) {
+        var orig = btn.textContent;
+        btn.textContent = 'Subscribing…';
+        btn.disabled = true;
+
+        fetch(NEWSLETTER_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, timestamp: new Date().toISOString() })
+        }).finally(function () {
+          if (input) input.value = '';
+          btn.textContent = 'You\'re in!';
+          btn.style.background = '#E7F1A8';
+          btn.style.color = '#364C84';
+          btn.disabled = false;
+          setTimeout(function () {
+            btn.textContent = orig;
+            btn.style.background = '';
+            btn.style.color = '';
+          }, 3000);
+        });
       }
     });
   });
 
-  // ---- Contact form ----
-  const contactForm = document.getElementById('contact-form');
+  // ---- Contact form → email via FormSubmit ----
+  var contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      const btn = this.querySelector('[type="submit"]');
+      var btn = this.querySelector('[type="submit"]');
+      var formData = new FormData(this);
+
       if (btn) {
-        btn.textContent = 'Message Sent!';
-        btn.style.background = '#E7F1A8';
-        btn.style.color = '#364C84';
-        setTimeout(function () {
-          btn.textContent = 'Send Message';
-          btn.style.background = '';
-          btn.style.color = '';
-          contactForm.reset();
-        }, 3500);
+        btn.innerHTML = 'Sending… <span class="material-icons-round" style="font-size:1.1rem;">hourglass_top</span>';
+        btn.disabled = true;
       }
+
+      fetch('https://formsubmit.co/ajax/connect@connectifylife.com', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (btn) {
+          btn.innerHTML = 'Message Sent! <span class="material-icons-round" style="font-size:1.1rem;">check</span>';
+          btn.style.background = '#E7F1A8';
+          btn.style.color = '#364C84';
+          btn.disabled = false;
+          setTimeout(function () {
+            btn.innerHTML = 'Send Message <span class="material-icons-round" style="font-size:1.1rem;">send</span>';
+            btn.style.background = '';
+            btn.style.color = '';
+            contactForm.reset();
+          }, 3500);
+        }
+      })
+      .catch(function () {
+        if (btn) {
+          btn.innerHTML = 'Error — try again';
+          btn.disabled = false;
+          setTimeout(function () {
+            btn.innerHTML = 'Send Message <span class="material-icons-round" style="font-size:1.1rem;">send</span>';
+          }, 3000);
+        }
+      });
     });
   }
 
