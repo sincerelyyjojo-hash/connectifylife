@@ -16,12 +16,6 @@
       background: #000;
       margin-top: 40px;
     }
-    .ts-trailer-wrap video {
-      width: 100%;
-      display: block;
-      max-height: 560px;
-      object-fit: cover;
-    }
     .ts-media-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -206,10 +200,8 @@
           <!-- Trailer -->
           <h2 style="margin-top:56px;">Event Trailer</h2>
           <p>A look inside the Trunk Sale experience.</p>
-          <div class="ts-trailer-wrap">
-            <video controls preload="metadata" poster="../trunk_sale/DSC04564.JPG">
-              <source src="../trunk_sale/Trailer.mov" type="video/mp4" />
-            </video>
+          <div class="ts-trailer-wrap" style="aspect-ratio:16/9;">
+            <iframe src="https://www.youtube.com/embed/0u3hp8so3cU" style="width:100%;height:100%;border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
 
           <!-- Photo + Vertical Reel Grid -->
@@ -217,9 +209,7 @@
           <div class="ts-media-grid">
             <!-- Vertical looping reel spans 2 rows -->
             <div class="ts-reel-item">
-              <video autoplay muted loop playsinline>
-                <source src="../trunk_sale/Trunk Sale (1).mp4" type="video/mp4" />
-              </video>
+              <iframe src="https://www.youtube.com/embed/zOag9WEzYBI?autoplay=1&mute=1&loop=1&playlist=zOag9WEzYBI&controls=0&playsinline=1" style="width:100%;height:100%;border:none;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
             <!-- Photos fill the rest -->
             <img src="../trunk_sale/DSC04564.JPG" alt="Trunk Sale event" />
