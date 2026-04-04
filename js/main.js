@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // ---- Newsletter form → Google Sheets ----
   // To activate: deploy the Apps Script in newsletter-script.gs as a Web App,
   // then replace NEWSLETTER_ENDPOINT below with your deployed URL.
-  var NEWSLETTER_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxPLACEHOLDER/exec';
+  var NEWSLETTER_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxaEJww9ZANPSP-DFK3bEu-nBNp4UVLXuPgJkWVOHACOhJkQJgUsImwlSPk2sx_xTmE_Q';
 
   document.querySelectorAll('.newsletter-form').forEach(function (form) {
     form.addEventListener('submit', function (e) {
