@@ -130,48 +130,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // ---- Contact form → email via FormSubmit ----
+  // ---- Contact form → native FormSubmit POST ----
   var contactForm = document.getElementById('contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
+    contactForm.addEventListener('submit', function () {
       var btn = this.querySelector('[type="submit"]');
-      var formData = new FormData(this);
-
       if (btn) {
         btn.innerHTML = 'Sending… <span class="material-icons-round" style="font-size:1.1rem;">hourglass_top</span>';
         btn.disabled = true;
       }
-
-      fetch('https://formsubmit.co/ajax/connect@connectifylife.com', {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      })
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        if (btn) {
-          btn.innerHTML = 'Message Sent! <span class="material-icons-round" style="font-size:1.1rem;">check</span>';
-          btn.style.background = '#E7F1A8';
-          btn.style.color = '#364C84';
-          btn.disabled = false;
-          setTimeout(function () {
-            btn.innerHTML = 'Send Message <span class="material-icons-round" style="font-size:1.1rem;">send</span>';
-            btn.style.background = '';
-            btn.style.color = '';
-            contactForm.reset();
-          }, 3500);
-        }
-      })
-      .catch(function () {
-        if (btn) {
-          btn.innerHTML = 'Error — try again';
-          btn.disabled = false;
-          setTimeout(function () {
-            btn.innerHTML = 'Send Message <span class="material-icons-round" style="font-size:1.1rem;">send</span>';
-          }, 3000);
-        }
-      });
+      // Allow native form POST to proceed to FormSubmit
     });
   }
 

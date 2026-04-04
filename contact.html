@@ -55,8 +55,10 @@
         <div class="contact-form-card">
           <h2>Send Us a Message</h2>
           <p>Fill in the form below and we'll get back to you within one business day.</p>
-          <form id="contact-form" novalidate>
+          <form id="contact-form" action="https://formsubmit.co/connect@connectifylife.com" method="POST" novalidate>
             <input type="hidden" name="_subject" value="New Inquiry — Connectify Media Website" />
+            <input type="hidden" name="_next" value="https://connectifylife.com/contact.html" />
+            <input type="hidden" name="_captcha" value="false" />
             <div class="form-row">
               <div class="form-group">
                 <label for="first-name">First Name</label>
