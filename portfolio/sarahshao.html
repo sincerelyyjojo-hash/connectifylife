@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sarah Shao Real Estate Team — Connectify Media</title>
+  <meta name="description" content="Case study: How Connectify Media helped Sarah Shao Real Estate Team expand from the Chinese market into GTA's western audiences through reels, carousels, and event curation." />
+  <link rel="icon" type="image/png" href="../brand_assets/logo colored.png" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" />
+  <style>
+    .ss-reel-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 32px;
+    }
+    @media (max-width: 900px) {
+      .ss-reel-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .ss-reel-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
+    .ss-reel-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 9/16;
+    }
+    .ss-reel-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ss-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 32px;
+    }
+    @media (max-width: 600px) {
+      .ss-photo-grid { grid-template-columns: 1fr; }
+    }
+    .ss-photo-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      display: block;
+    }
+    .ss-hero-cover {
+      width: 100%;
+      height: 520px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+      background: #1a1a2e;
+    }
+    .ss-hero-cover img.cover-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .ss-logo-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(20,20,40,0.75);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius-md);
+      padding: 12px 20px;
+    }
+    .ss-logo-badge img {
+      height: 36px;
+      object-fit: contain;
+      display: block;
+    }
+    .main-reel-wrap {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 9/16;
+      max-width: 380px;
+      margin: 32px auto 0;
+    }
+    .main-reel-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="navbar-logo">
+        <img src="../brand_assets/logo colored.png" alt="Connectify Media Logo" />
+        <div class="navbar-logo-text">CONNECTIFY<span>Media Inc.</span></div>
+      </a>
+      <div class="navbar-nav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <a href="../portfolio.html" class="active">Portfolio</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <a href="../contact.html" class="btn btn-primary btn-sm navbar-cta">Get Started</a>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="../index.html">Home</a><a href="../about.html">About</a><a href="../services.html">Services</a>
+    <a href="../portfolio.html">Portfolio</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a>
+    <a href="../contact.html" class="btn btn-primary">Get Started</a>
+  </div>
+
+  <!-- CASE STUDY HERO -->
+  <section class="cs-hero" style="background:var(--warm-white);">
+    <div class="container">
+
+      <div class="cs-breadcrumb" style="padding-top:32px;" data-reveal>
+        <a href="../portfolio.html">Portfolio</a>
+        <span class="material-icons-round" style="font-size:0.9rem;">chevron_right</span>
+        <span>Sarah Shao Real Estate Team</span>
+      </div>
+
+      <div style="max-width:820px;" data-reveal>
+        <div class="case-study-tags" style="margin-bottom:20px;">
+          <span class="case-study-tag">Event Curation</span>
+          <span class="case-study-tag">Social Media Content</span>
+        </div>
+        <h1 style="font-size:clamp(2rem,4vw,3.2rem);margin-bottom:24px;">Sarah Shao Real Estate Team</h1>
+        <div class="cs-meta">
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Client</span>
+            <span class="cs-meta-value">Sarah Shao Real Estate Team</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Agency</span>
+            <span class="cs-meta-value">Connectify Media Inc.</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Market</span>
+            <span class="cs-meta-value">Greater Toronto Area</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal style="margin-top:40px;">
+        <div class="ss-hero-cover">
+          <img src="../sarah_shao/IMG_8512.JPG" alt="Sarah Shao Real Estate Team" class="cover-photo" />
+          <div class="ss-logo-badge">
+            <img src="../brand_logos/2.png" alt="Sarah Shao Real Estate" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY BODY -->
+  <section class="cs-body" style="background:var(--warm-white);">
+    <div class="container">
+      <div class="cs-body-grid">
+
+        <!-- Story -->
+        <div class="cs-story" data-reveal>
+          <h2>The Challenge</h2>
+          <p>Sarah Shao Real Estate Team had already built a strong reputation within the Chinese-speaking community across the GTA — a loyal client base, strong referrals, and genuine expertise in serving that market. But the western market was largely untouched.</p>
+          <p>The challenge was clear: how do you translate a trusted brand from one cultural context to another without losing what makes it authentic? For Sarah Shao's team, it wasn't about starting over — it was about expanding reach while staying true to their identity.</p>
+
+          <h2>Our Approach</h2>
+          <p>We focused on two channels that could build credibility and visibility simultaneously: short-form video content and curated events.</p>
+          <p>On the content side, we developed a strategy around reels and carousel posts — formats that perform well across both Instagram and Facebook, and that allow Sarah Shao's expertise, personality, and track record to come through in a format western audiences engage with. Every piece was crafted to feel genuine: not a translation of Chinese-market content, but original content that reflected the team's voice for a new audience.</p>
+          <p>For events, we helped create moments where Sarah Shao's team could connect directly with clients and prospects — the kind of in-person credibility building that closes the gap between a brand you see online and an agent you trust with one of the biggest decisions of your life.</p>
+
+          <h2>The Content</h2>
+          <p>Below is a selection of the reels and content we produced for the Sarah Shao Real Estate Team — designed to perform on western platforms while staying authentic to the brand.</p>
+
+          <!-- Main intro video -->
+          <div class="main-reel-wrap">
+            <video autoplay muted loop playsinline>
+              <source src="../sarah_shao/5b00b0b6bfe61829e3291672749b4a 2.MP4" type="video/mp4" />
+            </video>
+          </div>
+
+          <!-- Reels Grid -->
+          <h2 style="margin-top:48px;">Reels</h2>
+          <div class="ss-reel-grid">
+            <div class="ss-reel-item">
+              <video autoplay muted loop playsinline>
+                <source src="../sarah_shao/Reel 1.MP4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="ss-reel-item">
+              <video autoplay muted loop playsinline>
+                <source src="../sarah_shao/Reel 2.MP4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="ss-reel-item">
+              <video autoplay muted loop playsinline>
+                <source src="../sarah_shao/Reel 3.MP4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="ss-reel-item">
+              <video autoplay muted loop playsinline>
+                <source src="../sarah_shao/Reel 4.MP4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="ss-reel-item">
+              <video autoplay muted loop playsinline>
+                <source src="../sarah_shao/Reel 5.MP4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="ss-reel-item">
+              <video autoplay muted loop playsinline>
+                <source src="../sarah_shao/Reel 6.MP4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="ss-reel-item">
+              <video autoplay muted loop playsinline>
+                <source src="../sarah_shao/Reel 7.MP4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+
+          <!-- Event Photos -->
+          <h2 style="margin-top:56px;">Events &amp; On-Site Moments</h2>
+          <div class="ss-photo-grid">
+            <img src="../sarah_shao/IMG_8512.JPG" alt="Sarah Shao Real Estate event" />
+            <img src="../sarah_shao/IMG_8513.JPG" alt="Sarah Shao Real Estate team" />
+            <img src="../sarah_shao/IMG_8514.JPG" alt="Sarah Shao Real Estate activation" />
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="cs-sidebar" data-reveal data-reveal-delay="2">
+
+          <div class="cs-sidebar-card" style="background:#1a1a2e;border:none;">
+            <img src="../brand_logos/2.png" alt="Sarah Shao Real Estate" style="width:100%;max-width:200px;object-fit:contain;display:block;margin:0 auto;" />
+          </div>
+
+          <div class="cs-sidebar-card">
+            <h4>Services Delivered</h4>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--dark-text);">
+                <span class="material-icons-round" style="font-size:1rem;color:var(--deep-blue);">event</span>
+                Event Curation
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--dark-text);">
+                <span class="material-icons-round" style="font-size:1rem;color:var(--deep-blue);">videocam</span>
+                Reels &amp; Short-Form Video
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--dark-text);">
+                <span class="material-icons-round" style="font-size:1rem;color:var(--deep-blue);">view_carousel</span>
+                Carousel Post Production
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--dark-text);">
+                <span class="material-icons-round" style="font-size:1rem;color:var(--deep-blue);">language</span>
+                Cross-Cultural Marketing
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-sidebar-card">
+            <h4>Market Focus</h4>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--dark-text);">
+                <span class="material-icons-round" style="font-size:1rem;color:var(--deep-blue);">location_on</span>
+                Greater Toronto Area
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--dark-text);">
+                <span class="material-icons-round" style="font-size:1rem;color:var(--deep-blue);">groups</span>
+                Western &amp; Chinese Markets
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--dark-text);">
+                <span class="material-icons-round" style="font-size:1rem;color:var(--deep-blue);">home</span>
+                Real Estate
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:80px 0;background:var(--white);">
+    <div class="container text-center" data-reveal>
+      <h2 style="margin-bottom:16px;">Ready to Reach a New Audience?</h2>
+      <p style="max-width:480px;margin:0 auto 36px;">We specialize in helping brands cross cultural and market boundaries. Let's talk about what that looks like for you.</p>
+      <a href="../contact.html" class="btn btn-primary btn-lg">Start a Conversation</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo"><img src="../brand_assets/logo colored.png" alt="Connectify Media" /><div class="footer-logo-text">CONNECTIFY<span>Media Inc.</span></div></div>
+          <p class="footer-desc">We build connections that convert — through bold strategy, curated events, and digital campaigns that leave a mark.</p>
+        </div>
+        <div class="footer-col"><h5>Company</h5><div class="footer-links"><a href="../about.html">About Us</a><a href="../services.html">Services</a><a href="../portfolio.html">Portfolio</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a></div></div>
+        <div class="footer-col"><h5>Contact</h5><div class="footer-links"><a href="mailto:connectifylife@gmail.com">connectifylife@gmail.com</a><a href="tel:+16475546887">(647) 554-6887</a><a href="#">Markham, Ontario</a></div></div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 Connectify Media Inc. All rights reserved.</p></div>
+    </div>
+    <div class="footer-gradient-bar"></div>
+  </footer>
+
+  <button class="back-to-top"><span class="material-icons-round">keyboard_arrow_up</span></button>
+  <script src="../js/main.js"></script>
+</body>
+</html>
