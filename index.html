@@ -61,6 +61,14 @@
       justify-content: center;
     }
 
+    @media (max-width: 768px) {
+      .hero-video-bg,
+      .hero-video-overlay { display: none; }
+      .hero-video-wrap { background: #fff; min-height: auto; padding: 120px 0 64px; }
+      .hero-video-content h1 { color: var(--dark-text); }
+      .hero-tagline { color: var(--gray); }
+    }
+
     /* ---- Purple CTA button with rainbow outline on hover ---- */
     .btn-purple {
       background: #7B52D8;
