@@ -1409,6 +1409,11 @@ select.form-input { appearance: none; cursor: pointer; }
 .service-list-dark .service-list-item { color: var(--dark-text); }
 .service-list-dark .service-list-item::before { background: var(--deep-blue); }
 
+@media (max-width: 1024px) {
+  .service-featured-card .btn,
+  .service-lime-card .btn { display: block; text-align: center; width: fit-content; margin: 0 auto; }
+}
+
 .services-all-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
